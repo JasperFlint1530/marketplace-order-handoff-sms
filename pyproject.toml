@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "marketplace-order-handoff-sms"
+version = "0.1.0"
+description = "Typed FastAPI service that sends marketplace order handoff SMS alerts."
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "httpx>=0.27,<1",
+  "pydantic>=2.9,<3",
+  "uvicorn>=0.30,<1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.3,<9"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["marketplace_sms*"]
